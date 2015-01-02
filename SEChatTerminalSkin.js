@@ -48,6 +48,7 @@ a, .more, .roomcard h3, .usercard h3 {color:green !important;}\
 div.messages:hover .timestamp {display:none !important;}\
 div.message {line-height:140%;padding-left:30px;}\
 div.message .content {margin-right:50px;}\
+div.message .content a {text-decoration:underline;}\
 div.message:hover .content {background:#001500;}\
 div.message .action-link {left:-1px;}\
 div.message:hover .action-link, .timestamp:hover+div.message .action-link {background:green;}\
@@ -84,6 +85,10 @@ div.message .meta {bottom:0;right:0;background:green;height:14px;padding-top:2px
 div.message pre, div.message code {background:#001500;}\
 .hat {display:none !important;}\
 .#reply-count, .reply-count {}\
+.room-info>.last-message {font-size:10px;padding-left:10px;}\
+ul#my-rooms>li {color:green !important;}\
+.sidebar-widget .msg-small {background-color:green;color:black;float:none;display:block;padding:2px;font-weight:bold;}\
+.sidebar-widget .msg-small a {color:black !important;text-decoration:underline;}\
     ';    
 	
     head.innerHTML += '<style>' + css + '</style>';
