@@ -23,6 +23,21 @@ function loadFont(url) {
 
 generateSkin();
 
+var observer = new MutationObserver(function(mutations) {
+  mutations.forEach(function(mutation) {
+    if (mutation.type === 'childList') {
+      var messages = document.querySelectorAll('.messages');    
+
+    }
+  });
+});
+
+observer.observe(chat, {
+  attributes: false,
+  childList: true,
+  characterData: false
+});
+
 function generateStyle(){
     var css = '\
 body {font-family: "Inconsolata", monospace;background-color: black;color: green;}\
@@ -56,14 +71,14 @@ div.message:hover, .timestamp:hover+div.message {border:1px solid transparent;}\
 .mention {background:green;color:black;}\
 .mine .messages, div.message.reply-parent, div.message.reply-child {background-color:#001500;}\
 .mine .messages .content {margin-right:50px;}\
-.button, a.button {color:black !important;background-color:green;border-radius:0;}\
+.button, a.button {color:black !important;background-color:green;border-radius:0;font-family:Inconsolata, monospace;}\
 .button:hover, .button:active, .button:focus {color:black;background-color:green;cursor:pointer;}\
 div.message .meta {background-color:transparent;}\
 .monologue.catchup-marker-1, .monologue.catchup-marker-2, .monologue.catchup-marker-3 {border-top: 2px dashed green;}\
 #sidebar {color:green;}\
 #sidebar #info #roomtitle {color:green;text-shadow:none;font-family:Inconsolata, monospace;}\
 .tag, .tag:hover {background:green;color:black !important;cursor:pointer;border:0;padding:3px;}\
-#sidebar #info #sidebar-menu, #present-users, ul#my-rooms {border-bottom:1px dashed green;}\
+#sidebar #info #sidebar-menu, #present-users, ul#my-rooms {border-bottom:1px dashed green;color:green;}\
 #sidebar .user-container .avatar {display:block !important;}\
 div#starred-posts>div>ul>li {border-bottom: 1px dashed green;}\
 #input-area {background-color:black;border-top:2px solid green;}\
@@ -75,20 +90,32 @@ div#starred-posts>div>ul>li {border-bottom: 1px dashed green;}\
 #input-area td:nth-child(2) {width:45% !important;}\
 #input-area td:nth-child(3) {width:12% !important;}\
 #input-area td:nth-child(4) {width:auto !important;float:none;text-align:right;}\
+#input-area #footer-logo a {display:inline-block;vertical-align:top;width:32px;height:40px;background:url(http://upload.easwee.net/stock/seterminalskinlogo.png) no-repeat 0 0;margin-right:10px;}\
+#input-area #footer-logo a img {display:none;}\
+#input-area #footer-legal {padding-right:10px;}\
 #input-table td {padding:6px 0;}\
 #input {display:block;width:100%;max-width:100%;border:0;background:green;border-radius:0;box-sizing:border-box;}\
 #bubble {width:auto;text-align:left;padding-left:0;}\
+.button.disabled, .button.disabled:hover {background:green;opacity:0.3;}\
 #chat-buttons .button {display:block;width:97%;padding:3px 0;margin:0 0 0 3%;box-sizing:border-box;margin-bottom:3px;text-align:center;font-weight:700;}\
 .system-message-container .system-message {width:84.9%}\
-.system-message {background:green;color:black;}\
+.system-message {background:green;color:black;border-radius:0;border:0;}\
 div.message .meta {bottom:0;right:0;background:green;height:14px;padding-top:2px;padding-right:3px;}\
 div.message pre, div.message code {background:#001500;}\
 .hat {display:none !important;}\
-.#reply-count, .reply-count {}\
+#reply-count, .reply-count {background:green;color:black !important;text-shadow:none;box-shadow:none;border-radius:0;border:0;}\
 .room-info>.last-message {font-size:10px;padding-left:10px;}\
 ul#my-rooms>li {color:green !important;}\
 .sidebar-widget .msg-small {background-color:green;color:black;float:none;display:block;padding:2px;font-weight:bold;}\
 .sidebar-widget .msg-small a {color:black !important;text-decoration:underline;}\
+.feed-icon, .vote-count-container.stars.owner-star.user-star .img, .vote-count-container.stars.owner-star .img, .vote-count-container.stars.user-star .img, .vote-count-container.stars .img,\
+ul#my-rooms .quickswitch, ul#my-rooms .quickleave, .favorite-room-vote, .favorite-room-vote.favorite-room, .sprite, div.message .reply-info,\
+div.message .action-link.edits .img, div.message:hover .action-link .img.menu, div.message:hover .action-link .img, .timestamp:hover+div.message .action-link .img, .timestamp:hover+div.message .action-link .img.menu,\
+.vote-count-container.flags .img, .div.message .newreply, div.message .newreply, .vote-count-container.flags .img {background-image:url(http://upload.easwee.net/stock/seterminalskinsprites.png);}\
+#sidebar-menu {color:green;}\
+#chat-body #searchbox, #transcript-body #searchbox {display:inline-block;vertical-align:top;background:green;border:0;font-family:Inconsolata, monospace;padding:2px 10px;}\
+#allrooms {display:inline-block;vertical-align:top;margin:0;}\
+input.watermark {color:black;font-style:italic;}\
     ';    
 	
     head.innerHTML += '<style>' + css + '</style>';
