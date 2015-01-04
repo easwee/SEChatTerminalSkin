@@ -26,11 +26,12 @@ generateSkin();
 // var observer = new MutationObserver(function(mutations) {
 //   mutations.forEach(function(mutation) {
 //     if (mutation.type === 'childList') {
-//       var messages = document.querySelectorAll('.messages');
-//       // if javascript is involved with ne messages manipulate here
+//       var messages = document.querySelectorAll('.messages');    
+
 //     }
 //   });
 // });
+
 // observer.observe(chat, {
 //   attributes: false,
 //   childList: true,
@@ -114,16 +115,23 @@ ul#my-rooms>li {color:green !important;}\
 .feed-icon, .vote-count-container.stars.owner-star.user-star .img, .vote-count-container.stars.owner-star .img, .vote-count-container.stars.user-star .img, .vote-count-container.stars .img,\
 ul#my-rooms .quickswitch, ul#my-rooms .quickleave, .favorite-room-vote, .favorite-room-vote.favorite-room, .sprite, div.message .reply-info,\
 div.message .action-link.edits .img, div.message:hover .action-link .img.menu, div.message:hover .action-link .img, .timestamp:hover+div.message .action-link .img, .timestamp:hover+div.message .action-link .img.menu,\
-.vote-count-container.flags .img, .div.message .newreply, div.message .newreply, .vote-count-container.flags .img {background-image:url(http://upload.easwee.net/stock/seterminalskinsprites.png);}\
+.vote-count-container.flags .img, .div.message .newreply, div.message .newreply, .vote-count-container.flags .img, .message .popup .flag .img, .popup .owner-star .img,\
+.message .popup .star .img{background-image:url(http://upload.easwee.net/stock/seterminalskinsprites.png);}\
 #sidebar-menu {color:green;}\
 #chat-body #searchbox, #transcript-body #searchbox {display:inline-block;vertical-align:top;background:green;border:0;font-family:Inconsolata, monospace;padding:2px 10px;}\
 #allrooms {display:inline-block;vertical-align:top;margin:0;}\
 input.watermark {color:black;font-style:italic;}\
 .wmd-prompt-dialog {background-color:black;border:1px solid green;}\
 .popup, #main.message-admin-mode .message-controls, #conversation-sel {padding: 5px;border: 1px solid green;font-size: 11px;color: green;-moz-border-radius: 0;-webkit-border-radius: 0;border-radius: 0;background: black;background: rgba(0, 0, 0, 0.95);-webkit-box-shadow: none;-moz-box-shadow:  none;box-shadow: none;overflow: hidden;}\
-.popup .btn-close, #conversation-sel .btn-close {background:green;color:black;border-radius:0;}\
+.popup .btn-close, #conversation-sel .btn-close, .popup .btn-close:hover, #conversation-sel .btn-close:hover {background:green;color:black;border-radius:0;}\
 .system-message-container .system-message {width:87.2%;padding:3px;color:black !important;font-size:10px;box-sizing:border-box;margin-top:10px;}\
 .system-message {background:green;color:black;border-radius:0;border:0;}\
-';
+.wmd-mini-button {border-radius:0;}\
+.wmd-mini-button.selected:hover, .wmd-mini-button.selected {background:green;color:black;}\
+.wmd-mini-button:hover, .wmd-mini-button.selected {background:#001500;}\
+';    
+	
     head.innerHTML += '<style>' + css + '</style>';
+    
+    
 }
